@@ -1,0 +1,23 @@
+{
+  "name": "chaiaurcode_backend",
+  "version": "1.0.0",
+  "description": "a basic app to learn deployment",
+  "keywords": [
+    "chai",
+    "code",
+    "backend",
+    "deployment"
+  ],
+  "license": "ISC",
+  "author": "Aryan Sachan",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
