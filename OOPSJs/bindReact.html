@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Bind</title>
+</head>
+<body>
+    <button>Click Me</button>
+</body>
+<script>
+    class React {
+        constructor() {
+            this.library = "React"
+            this.server = "http://localhost:3000/"
+
+            // requirement
+            const btn = document.querySelector("button")
+            btn.addEventListener("click", this.handleClick.bind(this))
+        }
+        handleClick() {
+            console.log("button clicked")
+            console.log(this)
+        }
+    }
+
+    // A new instance of the class is created — it sets up a click event listener on a <button>.
+    const app = new React()
+</script>
+
+<!--
+🔹The Problem Without .bind(this)
+When you write:-
+btn.addEventListener("click", this.handleClick); ->
+
+Then handleClick is passed as a callback — it’s not called yet.
+But when the button is clicked, the browser calls it like this: btn.handleClick(); // internally similar
+
+That means inside handleClick(), this will refer to the button element (<button>), not your class instance.
+
+So if you tried to access this.library inside handleClick, you’d get undefined, because the button has no such property.
+-->
+
+<!-- 
+🔹The Fix: .bind(this)
+When you do:-
+btn.addEventListener("click", this.handleClick.bind(this));
+you are creating a new function that is permanently bound to your class instance.
+
+Now no matter who calls handleClick later —
+inside it, this will always refer to the class instance (app).
+
+🧠 Think of .bind(this) as “locking” the context:-
+Without .bind(this): this → depends on how the function is called.
+With .bind(this): this → always points to the class instance.
+-->
+
+</html>

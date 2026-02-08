@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Guesser</title>
+    <style>
+        * {
+            border-radius: 5px;
+        }
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: beige;
+        }
+        .mainBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            padding: 10px;
+        }
+        .contextArea {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #numberInput {
+            width: 80%;
+            height: 26px;
+        }
+        button {
+            margin: 12px auto;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        .suggestion {
+            margin: auto auto 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainBox">
+        <h1>Number Guessing Game</h1>
+        <div class="contextArea">
+            <p>Guess a number between 1 and 100</p>
+            <p class="remainingGuess">
+                You have 10 attempts left to guess the right number
+            </p>
+
+            <h2>Guess a number</h2>
+            <input type="text" id="numberInput">
+            <button>Submit</button>
+            <div class="suggestion"></div>
+            <div id="prevInputs"></div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | final basics tutorial</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Note: Use innerHTML is not recommended because it traverses whole tree everytime, instead create everything in document and then append it to its parent
+    const div = document.createElement('div')
+
+    div.setAttribute('class', 'firstBox')
+    const firstBoxContent = document.createTextNode("Hello, you are inside 1st box!")
+    div.appendChild(firstBoxContent)
+
+    Object.assign(div.style, {
+        backgroundColor: "red",
+        color: "blue"
+    })
+
+    document.body.append(div)
+    console.log(div)
+
+    // crerating ul and 1 li inside
+    const ul = document.createElement('ul')
+    ul.setAttribute('class', 'language')
+
+    // creating it's li
+    const li = document.createElement('li')
+    const firstLiData = document.createTextNode("Javascript")
+    li.append(firstLiData) // append firstLiData to it's li
+    ul.append(li) // append li to it's ul
+    document.body.append(ul) // append ul to it's body
+
+    // styling ul
+    Object.assign(ul.style, {
+        backgroundColor: "blue",
+        color: "yellow"
+    })
+    console.log(ul) // console logging the ul
+
+    // appending multiple children of a div all at once
+    const div2 = document.createElement('div');
+    div2.append("Hello ", "World!", document.createElement('span')); // use of append() is recommended instead of appendChild()
+    document.body.append(div2);
+    console.log(div2)
+
+    // using functions() to create and add an element
+    function createLI (liData) {
+        const ul = document.querySelector('.language')
+        const li = document.createElement('li')
+        const dataVar = document.createTextNode(liData)
+        li.append(dataVar)
+        ul.append(li)
+    }
+    createLI("Java")
+    createLI("Typescript")
+    createLI("Python")
+
+    // replace innerContent
+    function replace(updated) {
+        const li = document.querySelector('li:nth-child(2)') // find the 2nd li
+
+        const newLi = document.createElement('li') // create new li
+        newLi.append(document.createTextNode(updated)) // add the updated value
+
+        li.replaceWith(newLi)
+    }
+    replace("GoLang")
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change BG Color</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .mainBox {
+            border: 2px solid black;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: beige;
+            color: white;
+            text-shadow: 3px 1px 3px brown;
+        }
+        .mainBox p {
+            font-size: 40px;
+        }
+        button {
+            height: 40px;
+            width: 140px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 2px 2px 2px brown;
+            margin: 10px;
+            cursor: pointer;
+            color: brown;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        button:hover {
+            background-color: rgba(245, 206, 206, 0.56);
+        }
+    </style>
+</head>
+<body>
+    <div class="mainBox">
+        <p>Click on Start to start changing the background color and Stop to stop it</p>
+
+        <button id = "start">Start</button>
+        <button id = "stop">Stop</button>
+    </div>
+</body>
+<script src="changeBgColor.js"></script>
+</html>
