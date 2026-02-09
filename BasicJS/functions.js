@@ -7,13 +7,25 @@ function calc(num1, num2) {
 }
 
 // NaN (Not a Number) will pass because typeof NaN === "number".
+/*
+function add(a, b) {
+    // ⚠️ DANGEROUS CHECK
+    if (typeof a === "number" && typeof b === "number") {
+        return a + b;
+    }
+    return 0;
+}
+
+// This WILL pass the check, but result in NaN
+add(5, NaN); // Returns NaN
+*/
 
 let result = calc(21, 24)
 console.log(result)
 
 function greet(name) {
     if (!name) {
-        return "Write a proper name please!"
+        return "Give a proper name please!"
     }
     return `Hii ${name}... Welcome to my AI world 🤖`
 }

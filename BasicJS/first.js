@@ -14,7 +14,7 @@ let data = "33";
 
 let num = Number(data)
 console.log(typeof num) // "number"
-console.log(num) // 33 ("33"), NaN ("33abc"/undefined/any_String), 1/0 (true/false), 0 (null)
+console.log(num) // 33 ("33"), NaN (undefined/any_String), 1/0 (true/false), 0 (null)
 
 let data2 = 1
 
