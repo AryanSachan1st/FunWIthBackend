@@ -9,12 +9,12 @@
     
 </body>
 <script>
-    // Note: Use innerHTML is not recommended because it traverses whole tree everytime, instead create everything in document and then append it to its parent
+    // Note: Use of innerHTML is not recommended because it traverses whole tree everytime, instead create everything in document and then append it to its parent
     const div = document.createElement('div')
 
     div.setAttribute('class', 'firstBox')
     const firstBoxContent = document.createTextNode("Hello, you are inside 1st box!")
-    div.appendChild(firstBoxContent)
+    div.append(firstBoxContent)
 
     Object.assign(div.style, {
         backgroundColor: "red",
