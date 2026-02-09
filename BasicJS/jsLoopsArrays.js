@@ -53,7 +53,7 @@ console.log("\n--- includes ---");
 console.log(myHeroes.includes("Thor")); // true
 console.log(myHeroes.includes("Batman")); // false
 
-// 7. push & pop - Add/Remove from END
+// 7. push & pop - Add/Remove from END (behaves like stack)
 // These methods MODIFY the original array.
 // push returns the new length of the array.
 // pop returns the removed element.
@@ -63,7 +63,7 @@ console.log(myHeroes);
 const removedHero = myHeroes.pop(); // Removes from end
 console.log(`Popped: ${removedHero}`);
 
-// 8. unshift & shift - Add/Remove from START
+// 8. unshift & shift - Add/Remove from START (reverse stack)
 // These methods MODIFY the original array.
 // unshift adds to the start and returns new length.
 // shift removes from the start and returns the element.
@@ -119,7 +119,7 @@ do {
     score++;
 } while (score <= 10);
 
-// 4. for...of loop (Best for Arrays and Strings)
+// 4. for...of loop (Best for Arrays, Strings, and Maps)
 // Returns VALUES directly. Safer and cleaner for arrays.
 // Does NOT work on objects directly.
 console.log("\n--- for...of loop ---");
@@ -154,3 +154,5 @@ for (const key in programming) {
     // console.log(key); // Prints 0, 1, 2...
     console.log(programming[key]);
 }
+
+// Note (for...each): It is technically a method (.forEach()) that belongs to Arrays (and Maps/Sets), not a standalone loop statement like for or while.
