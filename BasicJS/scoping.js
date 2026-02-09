@@ -48,7 +48,7 @@ console.log(oneLiner(4, 6)); // this ; is very important to run the IIFE below
     console.log(`Don't forget to drink your chai!`);
 })();
 
-// syntax --> ({key values} => {...func definition...})({...CSV key_value pairs...})
+// IIFE with parameters -> syntax --> ({parameters} => {...func definition...})({arguments})
 ( ({name, coding_lang}) => {
     console.log(`Hello, ${name}! Welcome to ${coding_lang} scoping.`)
 } )({name: "Aryan", coding_lang: "JavaScript"});
