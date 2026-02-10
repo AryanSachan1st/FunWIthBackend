@@ -1,28 +1,28 @@
-const weightInp = document.querySelector("#weight")
-const heightInp = document.querySelector("#height")
-let height, weight, bmi;
+const height_box = document.querySelector("#height")
+const weight_box = document.querySelector("#weight")
+const result_box = document.querySelector("#ans")
+const submit_btn = document.querySelector("#submit")
 
-heightInp.addEventListener('change', (event) => {
-    const valueInp = event.target.value;
+// We calculate everything INSIDE the click event
+submit_btn.addEventListener("click", (event) => {
+    // 1. Get current values from the input boxes
+    // parse to Float to ensure they are treated as numbers
+    const height = parseFloat(height_box.value) 
+    const weight = parseFloat(weight_box.value)
 
-    height = parseFloat(valueInp);
-})
+    // 2. Calculate BMI
+    const bmi = weight / (height * height) // BMI formula is kg/m^2
 
-weightInp.addEventListener('change', (event) => {
-    const valueInp = event.target.value;
-
-    weight = parseFloat(valueInp);
-})
-
-
-const submitBtn = document.querySelector("button")
-submitBtn.addEventListener('click', (event) => {
-    const output = document.querySelector('#ans')
-
-    if (!isNaN(weight) && !isNaN(height) && height > 0) {
-        bmi = (weight / Math.pow(height, 2)).toFixed(2);
-        output.textContent = bmi
+    // 3. Log and display results
+    console.log("Height:", height)
+    console.log("Weight:", weight)
+    console.log("BMI:", bmi)
+    
+    // Check if inputs are valid numbers before displaying
+    if (!isNaN(bmi)) {
+        result_box.innerHTML = `Your BMI is: ${bmi.toFixed(2)}`
     } else {
-        output.textContent = "Enter valid values (height != 0)"
+        result_box.innerHTML = "Please enter valid numbers"
     }
 })
+
