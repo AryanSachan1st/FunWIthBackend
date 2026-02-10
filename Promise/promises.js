@@ -5,6 +5,7 @@
 //         resolve()
 //     }, 2000)
 // })
+
 // // Consuming promise1
 // promise1
 // .then(() => {
@@ -23,6 +24,7 @@
 //     }, 2000)
 // })
 
+// Consuming promise2
 // promise2
 // .then((data) => {
 //     console.log(data)
@@ -74,33 +76,33 @@
 // consumeP3()
 
 // Real world API fetch (async/await)
-async function toDoLists() {
-    try {
-        const data = await fetch("https://jsonplaceholder.typicode.com/todos") // await
-        const response = await data.json() // await
-        console.log(response[0])
-    } catch (error) {
-        console.error("Error: ", error)
-    } finally {
-        console.log("Async/Await Finally executed")
-    }
-}
-toDoLists()
+// async function toDoLists() {
+//     try {
+//         const data = await fetch("https://jsonplaceholder.typicode.com/todos") // await
+//         const response = await data.json() // await
+//         console.log(response[0])
+//     } catch (error) {
+//         console.error("Error: ", error)
+//     } finally {
+//         console.log("Async/Await Finally executed")
+//     }
+// }
+// toDoLists()
 
-// Real world API fetch (.then().catch().finally())
-fetch("https://jsonplaceholder.typicode.com/todos")
-.then((response) => {
-    return response.json()
-})
-.then((data) => {
-    console.log(data[1])
-})
-.catch((error) => {
-    console.error("Error: ", error)
-})
-.finally(() => {
-    console.log("Finally executed")
-})
+// // Real world API fetch (.then().catch().finally())
+// fetch("https://jsonplaceholder.typicode.com/todos")
+// .then((response) => {
+//     return response.json()
+// })
+// .then((data) => {
+//     console.log(data[1])
+// })
+// .catch((error) => {
+//     console.error("Error: ", error)
+// })
+// .finally(() => {
+//     console.log("Finally executed")
+// })
 
 /* Rule of the Event Loop:-
 1. After every synchronous task finishes, all microtasks are run (in order), then one macrotask is executed, and then the cycle repeats.
@@ -122,3 +124,62 @@ That’s because fetch() only rejects (throws) on network-level errors, like:
 3. CORS failure
 4. DNS failure
 */
+
+const valen_promise = new Promise((resolve, reject) => {
+    const bandhan = {
+        boy: "Archit",
+        girl: "Keerti",
+        promise: "Forever Valentine 💝"
+    }
+    const relationship = Math.floor(Math.random() * 2)
+    setTimeout(() => {
+        if (relationship) {
+            console.log("Promise successfull 🥳")
+            resolve(bandhan)
+        } else {
+            reject()
+        }
+    }, 2000)
+})
+
+// Resolving Valen-Promise (by .then().catch().finally())
+valen_promise
+.then((data) => {
+    const holders = {
+        boy: data.boy,
+        girl: data.girl
+    }
+    console.log("Promise holders: ", holders)
+    return {promise: data.promise}
+})
+.then((msg) => {
+    console.log("Promise message: ", msg)
+})
+.catch((err) => {
+    console.error("Breakup successfull 💔")
+    // throw new Error("Relationship ended due to breakup") // completed
+})
+.finally(() => {
+    const advice = {
+        committed: "Be with each other in every ups and down",
+        breakup: "F**k them and move on, your life is turly yours"
+    }
+    console.log("General Advice: ", advice)
+})
+
+// Resolving the promise using async-await
+async function valentine_result () {
+    try {
+        const response = await valen_promise
+        console.log(response)
+    } catch (error) {
+        console.error("Breakup successfull 💔 - async-await")
+    } finally {
+        const advice = {
+            committed: "Be with each other in every ups and down",
+            breakup: "F**k them and move on, your life is turly yours"
+        }
+        console.log("General Advice: ", advice)
+    }
+}
+valentine_result()
