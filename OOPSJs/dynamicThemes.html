@@ -11,25 +11,13 @@
     <button id = "red">Red Me</button>
 </body>
 <script>
-    function changeTheme(inpId) {
-        const inputBox = document.querySelector(inpId)
-        inputBox.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                const color = event.target.value;
-                document.body.style.backgroundColor = color
-            }
+    function changeBG() {
+        const box = document.querySelector("#color");
+        box.addEventListener("input", (event) => {
+            document.body.style.backgroundColor = String(event.target.value)
         })
     }
-
-    function dynamicTheme(inpId) {
-        const inputBox = document.querySelector(inpId)
-        inputBox.addEventListener("input", (event) => {
-            const color = event.target.value;
-            document.body.style.backgroundColor = color
-        })
-    }
-    // changeTheme("#color")
-    dynamicTheme("#color")
+    changeBG()
 
     // Lexical Scoping and Closure
     function clickHandler(color) {
@@ -37,8 +25,13 @@
             document.body.style.backgroundColor = `${color}`
         }
     }
-    document.querySelector("#red").onclick = clickHandler("red")
-    document.querySelector("#green").onclick = clickHandler("green")
+    document.querySelector("#red").onclick = clickHandler("red") // closure - When the script loads, clickHandler("red") is executed immediately. When you click, the inner function runs. It doesn't have a color variable inside itself, so it looks up to the closure scope and finds "red".
+
+    function changeColor(color) {
+        return document.body.style.backgroundColor = `${color}`
+    }
+    document.querySelector("#green").onclick = () => changeColor("green") // arrow function - We are wrapping the logic in an anonymous function () => () to delay execution.
+    
     /*
     Closure: When a function “remembers” variables from its creation environment, even after that outer function has finished.
     */

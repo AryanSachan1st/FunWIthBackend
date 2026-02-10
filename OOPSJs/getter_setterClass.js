@@ -37,3 +37,16 @@ console.log(aryan.name) // calling getter for aryan
 console.log(aryan.rollNo)
 console.log("Public variable: ", aryan._rollNo) // public variable
 // Note: If we want read only access then we can define the getters and won't define the setters to avoid write access, ex: we can read the length of array but can write the length of array like arr.length = 5 (❌ wrong)
+
+/*
+1. calling setters for #name and _rollno-
+this.name = name_value
+this.rollno = noll_no
+
+2. calling getters for #name and _rollno-
+object.name
+object.rollno
+
+Note: Looks like calling some properties using {.} operator, but actually calling the getter and setter functions
+Note: Just make sure the casing (getters & setters) matches our function definitions!
+*/

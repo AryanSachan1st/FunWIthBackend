@@ -1,5 +1,5 @@
-const jsonData = Object.getOwnPropertyDescriptor(Math, "PI")
-// console.log(jsonData)
+const jsonData = Object.getOwnPropertyDescriptor(Math, "PI") // (Object, property)
+console.log(jsonData)
 
 const user = {
     name: "Aryan Sachan",
@@ -36,3 +36,24 @@ So once 'configurable' is 'false', you cannot:
 2. Redefine it with Object.defineProperty
 3. Change its enumerable, configurable, or writable flags
 */
+
+const superhero = {
+    name: "Peter Parker",
+    role: "Spider man",
+    strenghts: {
+        "physical": "sticking and crawling the walls like spider",
+        "sensical": "peter tingle",
+        "attack": "web shooters",
+        "raw": "strength up to hold an entire ship breadking aparts from between"
+    }
+}
+Object.defineProperty(superhero, "role", {
+    value: "Spider man",
+    writable: false,
+    enumerable: true,
+    configurable: false
+})
+superhero.role = "thor" // will not show up because writable is false in superhero
+for (const [key, val] of Object.entries(superhero)) {
+    console.log(`${key}: ${superhero[key]}`)
+}
