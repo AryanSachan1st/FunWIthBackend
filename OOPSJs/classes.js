@@ -26,7 +26,7 @@ function UserFunc(username, email, password) {
 UserFunc.prototype.encryptPass = function() { // never use arrow functions because they do not have their own 'this'
     return `function() encrypted password for ${this.username}: $%$#${this.password}#$%`
 }
-UserFunc.prototype.modifyUserName = function() { // never use arrow functions because they do not have their own 'this'
+UserFunc.prototype.modifyUserName = function() {
     return `function() modified username: ${this.username.toUpperCase()}`
 }
 

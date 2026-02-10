@@ -37,5 +37,12 @@ console.log(`Amulya is a Teacher, ${amulya instanceof Teacher}`)
 console.log(siddhu.getEmail())
 console.log(amulya.getEmail())
 console.log(amulya.getAge())
+console.log(amulya.username) // public variable
+
+/*
+The reason why this code works without explicit setters is that JavaScript class properties are public and mutable by default.
+Getters and Setters are required for private and senstive fields where extra control and validation is required
+*/
+
 // console.log(amulya.getPassword()) // will throw an error --> TypeError: amulya.getPassword is not a function
 // console.log(amulya.sudoGetter()) // will throw an error --> can't be invoked by sudoGetters also

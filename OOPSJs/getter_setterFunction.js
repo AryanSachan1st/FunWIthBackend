@@ -1,30 +1,28 @@
-function User(email, password) {
+function User(username, email) {
     Object.defineProperty(this, "email", {
         set: function(value) {
-            console.log("Setter called for email...")
+            console.log("Calling setter for email--")
             this._email = value
         },
         get: function() {
-            console.log("Getter called for email...")
+            console.log("calling getter for email--")
             return this._email
         }
     })
-    Object.defineProperty(this, "password", {
+    Object.defineProperty(this, "username", {
         set: function(value) {
-            console.log("Setter called for password...")
-            this._password = value
+            console.log("Calling setter for username--")
+            this._username = value
         },
         get: function() {
-            console.log("Getter called for password...")
-            return this._password
+            console.log("Calling getter for username--")
+            return this._username
         }
     })
-
-    // call the setters after defining them
-    this.email = email;
-    this.password = password;
+    
+    this.username = username
+    this.email = email
 }
-
-const aryan = new User("arya@gmail.com", "1234#4321")
-console.log(aryan.email)
-console.log(aryan.password)
+const aryan = new User("aryan sachan", "aryan@google.com")
+console.log(aryan.username);
+console.log(aryan.email);
